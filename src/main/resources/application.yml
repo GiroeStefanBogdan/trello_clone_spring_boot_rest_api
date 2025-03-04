@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: TrelloClone
+
+  datasource:
+    url: jdbc:mysql://localhost/trello_clone
+    username: bogdan
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+  data:
+    rest:
+      base-path: /api/v1
+logging:
+  level:
+    org:
+      hibernate:
+        SQL:
+          DEBUG
+      type:
+        descriptor:
+          sql:
+            BasicBinder:
+              TRACE
+      orm:
+        jdbc:
+          bind:
+            TRACE
+security:
+  jwt:
+    secretKey:
+      39caf268f2a0304544d46a1f742bc2bd5de357353a0201ed9528cf220023335efc215256438580f7802209ccc503bd35da5d7aa551ec3f44c2b07e38f8d4dbd2921caa9e029922797d925b2df579aed9c2a678419bd940092731779c8e680abe1c0b10c00d6ebc67c0a2c35d18b774b0ad275aed3192a843bf45c94612d610b32dbe3e29350ff1e9a9b2d2fc379978aba9e85f5993e2f9e404b6a0bb75174fa803321f00ef73d8029512344972ed0e983a118a1b337e09a70e115b1e8699a797fb4da9cf4dbc6fc5397a869bef3cc6fad8a823c939e125d105ecd325d92725d4b3917c17a7948b70671b506ddafe76ecbd8cb0a852acdd4b8ea8bd315298540b
+    issuer: Trello App API
